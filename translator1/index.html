@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Translator</h1>
+  <textarea class='original-text'></textarea>
+  <button class='change' onclick="translateFn()">변환</button>
+  <div class="result-text"></div>
+  <script src="./hangul.js"></script>
+  
+  <script>
+    console.log(Hangul.disassemble('가나다'));
+
+    function translateFn(){
+      let textArea = document.querySelector("textarea");
+      console.log("### textArea Value : " + textArea.value);
+      // document.querySelector(".result-text").innerHTML = textArea.value; 
+    } 
+
+    // 문장을 받으면 규칙대로 변형해서 리턴하는 함수
+    function translator(str) {
+        return str.split('').map(char => { // 문장을 글자별로 쪼개서 map을 돌린다
+            var d = Hangul.disassemble(char); // 글자를 자음 모음으로 분리한다
+            // 4번째 자모음이 있고, 2번째와 3번째가 모음이면 4와 3을 교환해준다
+            if(d[3] && Hangul.isVowel(d[1]) && Hangul.isVowel(d[2])) {
+                var tmp = d[3];
+                d[3] = d[2];
+                d[2] = tmp;
+            }
+            return Hangul.assemble(d); // 자모음을 다시 조립해서 글자를 반환
+        }).join('');
+    };
+    // DOMContentLoaded : 화면이다 드로잉 되어지면 이 함수를 실행해
+    window.addEventListener('DOMContentLoaded', function(){
+      document.querySelector('.change').addEventListener('click', () => {
+        var originalTetValue = document.querySelector('.original-text').value;
+        const changedText = translator(originalTetValue);
+        document.querySelector('.result-text').innerText = changedText;
+      })
+    });
+  </script>
+
+</body>
+</html>
