@@ -1,0 +1,13 @@
+1. git 
+git repository create > copy git repository http addr
+
+2. Sourcetree
+: Sourcetree로 git repository를 로컬에서 관리 할 수 잇다.
+: 이 단계가 끝나면 VSCode에서 commit, push, pull등 작업을 할 수 있다.
+새로만들기 - url에서 복제 
+> paste git repository http addr - setting local addr 
+
+
+
+---
+git, Sourcetree의 동작 원리를 파악할 필요가 있음
