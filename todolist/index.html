@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Templates Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h3>{{ message }}</h3>
+        <h2>{{ subMessage }}</h2>
+      </header>
+      <section>
+        <p v-bind:id="uid"></p>
+
+        <form class="add-items">
+          <input type="text" name="item" placeholder="todo list" required>
+          <input type="submit" value="+ Add list"> 
+        </form>
+        <button v-on:click="clickBtn">alert</button>
+        <ul v-if="flag">
+          <li>To do 1</li>
+        </ul>
+      </section>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
