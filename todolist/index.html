@@ -4,6 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do list</title>
+    <style>
+      /* .toDolist */
+      .toDoList {
+        list-style: none;
+      }
+
+      .toDoList input + label {
+        text-decoration: none;
+      }
+      .toDoList input:checked + label{
+        text-decoration: line-through;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
