@@ -17,18 +17,31 @@ var app = new Vue({
 
 const items = JSON.parse(localStorage.getItem('items')) || [];
 const addItems = document.querySelector('.add-items');
+const toDoList = document.querySelector('.toDoList');
 
 function addItem(e){
   e.preventDefault(); //won't refresh browser
 
   const text = (this.querySelector('[name=item]')).value;
-  console.log("### name = item value : " + this.querySelector('[name=item').value);
-  
   const item = { text };
-  items.push(item);
+  console.log("### name = item value : " + this.querySelector('[name=item').value);
 
-  addItemAtList(items, addItems);
+  items.push(item);
+  // addItemAtList(items || [], addItems);
+  localStorage.setItem('toDoList', JSON.stringify(items));
+  // toDoList.innerHTML = `<li> dd </li>`;  
+  toDoList.innerHTML = items.map((item, i)=>{
+    return ` <li>
+      <label>${item.text}</label>
+    </li>
+    `
+  }).join('');
+  this.reset;// this : document.querySelector('.add-items');
 }
+
+// function addItemAtList(items, toDoList){
+//   toDoList.innerHTML = items.
+// }
 
 
 addItems.addEventListener('submit', addItem);

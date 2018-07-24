@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Templates Sample</title>
+    <title>To do list</title>
   </head>
   <body>
     <div id="app">
       <header>
         <h3>{{ message }}</h3>
-        <h2>{{ subMessage }}</h2>
+        <!-- <h2>{{ subMessage }}</h2> -->
       </header>
       <section>
         <p v-bind:id="uid"></p>
@@ -19,8 +19,7 @@
           <input type="submit" value="+ Add list"> 
         </form>
         <button v-on:click="clickBtn">alert</button>
-        <ul v-if="flag">
-          <li>To do 1</li>
+        <ul class="toDoList" v-if="flag">
         </ul>
       </section>
     </div>
