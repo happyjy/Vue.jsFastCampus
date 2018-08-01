@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <style>
+      /* .toDolist */
+      .toDoList {
+        list-style: none;
+      }
+
+      .toDoList input + label {
+        text-decoration: none;
+      }
+      .toDoList input:checked + label{
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h3>{{ message }}</h3>
+      </header>
+      <section>
+        <input-component class="add-items"></input-component>
+        <list-component class="toDoList" v-if="flag"></list-component>
+      </section>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
