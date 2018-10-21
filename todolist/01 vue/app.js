@@ -14,12 +14,11 @@ Vue.component('list-component',{
   template: `
   <div>
     <ul>
-      <li v-for="(todoItem, index) in {{todoItems}}" class="shadow">
+      <li v-for="(todoItem, index) in todoItems" class="shadow">
         {{ todoItem }}
       </li>
     </ul>
   </div>
-
   `
 })
 
@@ -47,7 +46,7 @@ var app = new Vue({
         done: false
       };
       console.log("### name = item value : " + this.querySelector('[name=item').value);
-      todoListItems.push(item);
+      todoItems.push(item);
       addLiEle(items, toDoList);
       localStorage.setItem('toDoList', JSON.stringify(todoListItems));
       this.reset;// this : document.querySelector('.add-items');
